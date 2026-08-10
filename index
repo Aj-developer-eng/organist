@@ -1,0 +1,3306 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FreshDesi | Fresh Eggs, Chicken & Milk</title>
+
+    <meta
+        name="description"
+        content="Order fresh Desi eggs, detox chicken and fresh milk delivered to your doorstep."
+    >
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Arial,
+                sans-serif;
+
+            background: #fafbf7;
+            color: #17351f;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button,
+        input,
+        textarea {
+            font: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        :root {
+            --green: #174d2a;
+            --green-dark: #0d351b;
+            --green-light: #e9f4e7;
+            --cream: #f7f2e7;
+            --yellow: #e6ad32;
+            --white: #ffffff;
+            --text: #17351f;
+            --muted: #68746c;
+            --border: #e3e8e1;
+            --shadow: 0 20px 50px rgba(23, 53, 31, 0.10);
+        }
+
+        /* =========================
+           NAVBAR
+        ========================== */
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255,255,255,.94);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 5px 25px rgba(0,0,0,.06);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 18px 24px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--green);
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: var(--green);
+            color: white;
+
+            border-radius: 13px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .nav-links a {
+            transition: .2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--green);
+        }
+
+        .cart-nav {
+            background: var(--green);
+            color: white !important;
+
+            padding: 11px 18px;
+            border-radius: 30px;
+        }
+
+        .cart-nav:hover {
+            background: var(--green-dark);
+        }
+
+        .menu-btn {
+            display: none;
+
+            border: none;
+            background: transparent;
+
+            font-size: 28px;
+            color: var(--green);
+        }
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            min-height: 760px;
+
+            padding: 150px 24px 90px;
+
+            background:
+                radial-gradient(
+                    circle at 85% 25%,
+                    rgba(226,239,218,.9),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    135deg,
+                    #faf9f2 0%,
+                    #eef6eb 100%
+                );
+
+            overflow: hidden;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
+
+            align-items: center;
+            gap: 70px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+
+            background: #e3f0df;
+            color: var(--green);
+
+            padding: 8px 14px;
+            border-radius: 30px;
+
+            font-size: 13px;
+            font-weight: 800;
+
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(46px, 6vw, 78px);
+            line-height: 1.02;
+            letter-spacing: -3px;
+
+            max-width: 680px;
+
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: var(--green);
+        }
+
+        .hero-description {
+            max-width: 580px;
+
+            color: var(--muted);
+            font-size: 18px;
+
+            margin-bottom: 32px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            border: none;
+
+            padding: 15px 24px;
+
+            border-radius: 14px;
+
+            font-weight: 800;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+
+            transition: .25s ease;
+        }
+
+        .btn-primary {
+            background: var(--green);
+            color: white;
+
+            box-shadow:
+                0 10px 25px rgba(23,77,42,.22);
+        }
+
+        .btn-primary:hover {
+            background: var(--green-dark);
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--green);
+
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .hero-image {
+            height: 500px;
+
+            border-radius: 35px;
+
+            background:
+                linear-gradient(
+                    rgba(20,70,38,.08),
+                    rgba(20,70,38,.08)
+                ),
+                url("https://images.unsplash.com/photo-1601593768797-1e8e6b8e4d5c?auto=format&fit=crop&w=1000&q=85")
+                center/cover;
+
+            box-shadow: var(--shadow);
+        }
+
+        .floating-card {
+            position: absolute;
+
+            background: white;
+
+            padding: 15px 18px;
+
+            border-radius: 18px;
+
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            box-shadow: 0 15px 40px rgba(0,0,0,.13);
+
+            animation: floating 4s ease-in-out infinite;
+        }
+
+        .floating-card.one {
+            top: 35px;
+            left: -30px;
+        }
+
+        .floating-card.two {
+            bottom: 35px;
+            right: -25px;
+
+            animation-delay: 1s;
+        }
+
+        .floating-icon {
+            width: 42px;
+            height: 42px;
+
+            border-radius: 12px;
+
+            background: var(--green-light);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 20px;
+        }
+
+        .floating-card strong {
+            display: block;
+            font-size: 14px;
+        }
+
+        .floating-card small {
+            color: var(--muted);
+        }
+
+        @keyframes floating {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+        }
+
+        /* =========================
+           TRUST
+        ========================== */
+
+        .trust {
+            background: white;
+
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .trust-container {
+            max-width: 1200px;
+            margin: auto;
+
+            padding: 25px 24px;
+
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+
+            gap: 20px;
+        }
+
+        .trust-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            gap: 10px;
+
+            font-weight: 800;
+            color: var(--green);
+        }
+
+        .trust-item span {
+            font-size: 22px;
+        }
+
+        /* =========================
+           SECTIONS
+        ========================== */
+
+        .section {
+            padding: 100px 24px;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-heading {
+            max-width: 680px;
+            margin: 0 auto 50px;
+
+            text-align: center;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(34px,5vw,52px);
+
+            line-height: 1.1;
+
+            letter-spacing: -1.5px;
+
+            margin-bottom: 14px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+        }
+
+        /* =========================
+           PRODUCTS
+        ========================== */
+
+        .products {
+            background: #fafbf7;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+
+            gap: 25px;
+        }
+
+        .product-card {
+            background: white;
+
+            border: 1px solid var(--border);
+
+            border-radius: 25px;
+
+            overflow: hidden;
+
+            transition: .3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow);
+        }
+
+        .product-image {
+            height: 260px;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: .5s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.06);
+        }
+
+        .fresh-badge {
+            position: absolute;
+
+            top: 16px;
+            left: 16px;
+
+            background: white;
+
+            color: var(--green);
+
+            padding: 7px 12px;
+
+            border-radius: 30px;
+
+            font-size: 12px;
+            font-weight: 800;
+
+            box-shadow: 0 5px 15px rgba(0,0,0,.1);
+        }
+
+        .product-content {
+            padding: 24px;
+        }
+
+        .product-content h3 {
+            font-size: 23px;
+            margin-bottom: 8px;
+        }
+
+        .product-content p {
+            color: var(--muted);
+
+            font-size: 14px;
+
+            min-height: 50px;
+        }
+
+        .stars {
+            color: var(--yellow);
+
+            letter-spacing: 2px;
+
+            margin: 12px 0;
+        }
+
+        .product-bottom {
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 12px;
+
+            margin-top: 18px;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: 800;
+
+            color: var(--green);
+        }
+
+        .price small {
+            color: var(--muted);
+
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .add-btn {
+            border: none;
+
+            background: var(--green);
+            color: white;
+
+            padding: 11px 15px;
+
+            border-radius: 11px;
+
+            font-weight: 800;
+
+            transition: .2s;
+        }
+
+        .add-btn:hover {
+            background: var(--green-dark);
+        }
+
+        /* =========================
+           WHY US
+        ========================== */
+
+        .why {
+            background: white;
+        }
+
+        .features {
+            display: grid;
+
+            grid-template-columns: repeat(4,1fr);
+
+            gap: 20px;
+        }
+
+        .feature {
+            padding: 30px 24px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 22px;
+
+            transition: .3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .feature-icon {
+            width: 55px;
+            height: 55px;
+
+            border-radius: 16px;
+
+            background: var(--green-light);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 25px;
+
+            margin-bottom: 20px;
+        }
+
+        .feature h3 {
+            margin-bottom: 8px;
+        }
+
+        .feature p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* =========================
+           HOW IT WORKS
+        ========================== */
+
+        .how {
+            background: var(--cream);
+        }
+
+        .steps {
+            display: grid;
+
+            grid-template-columns: repeat(4,1fr);
+
+            gap: 25px;
+        }
+
+        .step {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 65px;
+            height: 65px;
+
+            margin: 0 auto 20px;
+
+            border-radius: 50%;
+
+            background: var(--green);
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .step h3 {
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* =========================
+           CTA
+        ========================== */
+
+        .cta {
+            padding: 100px 24px;
+
+            background: var(--green);
+
+            color: white;
+
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .cta h2 {
+            font-size: clamp(35px,5vw,55px);
+
+            line-height: 1.1;
+
+            margin-bottom: 18px;
+        }
+
+        .cta p {
+            opacity: .85;
+
+            margin-bottom: 30px;
+        }
+
+        .cta .btn-primary {
+            background: white;
+            color: var(--green);
+        }
+
+        .cta .btn-primary:hover {
+            background: var(--cream);
+        }
+
+        /* =========================
+           TESTIMONIALS
+        ========================== */
+
+        .testimonials {
+            background: white;
+        }
+
+        .testimonial-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3,1fr);
+
+            gap: 25px;
+        }
+
+        .testimonial {
+            padding: 28px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 22px;
+        }
+
+        .testimonial p {
+            color: var(--muted);
+
+            margin-bottom: 20px;
+        }
+
+        .customer {
+            font-weight: 800;
+        }
+
+        /* =========================
+           FAQ
+        ========================== */
+
+        .faq {
+            background: #fafbf7;
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .faq-item {
+            background: white;
+
+            border: 1px solid var(--border);
+
+            border-radius: 16px;
+
+            margin-bottom: 12px;
+
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+
+            border: none;
+
+            background: white;
+
+            padding: 20px;
+
+            text-align: left;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            font-weight: 800;
+
+            color: var(--text);
+        }
+
+        .faq-answer {
+            display: none;
+
+            padding: 0 20px 20px;
+
+            color: var(--muted);
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-icon {
+            font-size: 22px;
+
+            transition: .2s;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            background: #0e2415;
+
+            color: white;
+
+            padding: 70px 24px 30px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+
+            gap: 50px;
+        }
+
+        .footer-brand p {
+            color: #aab7ad;
+
+            max-width: 300px;
+
+            margin-top: 15px;
+        }
+
+        .footer-title {
+            font-weight: 800;
+
+            margin-bottom: 18px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+
+            gap: 10px;
+
+            color: #aab7ad;
+
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            max-width: 1200px;
+
+            margin: 50px auto 0;
+
+            padding-top: 25px;
+
+            border-top: 1px solid rgba(255,255,255,.1);
+
+            color: #8f9d93;
+
+            text-align: center;
+
+            font-size: 13px;
+        }
+
+        /* =========================
+           CART
+        ========================== */
+
+        .overlay {
+            position: fixed;
+            inset: 0;
+
+            background: rgba(0,0,0,.45);
+
+            z-index: 2000;
+
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        .cart-drawer {
+            position: fixed;
+
+            top: 0;
+            right: -430px;
+
+            width: min(430px,100%);
+
+            height: 100vh;
+
+            background: white;
+
+            z-index: 2100;
+
+            transition: right .35s ease;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-drawer.active {
+            right: 0;
+        }
+
+        .cart-header {
+            padding: 22px;
+
+            border-bottom: 1px solid var(--border);
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .cart-header h3 {
+            font-size: 22px;
+        }
+
+        .close-btn {
+            width: 38px;
+            height: 38px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background: #f2f4ef;
+
+            font-size: 22px;
+        }
+
+        .cart-items {
+            flex: 1;
+
+            overflow-y: auto;
+
+            padding: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+
+            gap: 13px;
+
+            padding: 15px 0;
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .cart-item-image {
+            width: 65px;
+            height: 65px;
+
+            border-radius: 12px;
+
+            object-fit: cover;
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-info strong {
+            display: block;
+        }
+
+        .cart-item-info small {
+            color: var(--muted);
+        }
+
+        .quantity {
+            display: flex;
+            align-items: center;
+
+            gap: 8px;
+
+            margin-top: 7px;
+        }
+
+        .quantity button {
+            width: 26px;
+            height: 26px;
+
+            border: 1px solid var(--border);
+
+            background: white;
+
+            border-radius: 7px;
+        }
+
+        .cart-footer {
+            padding: 20px;
+
+            border-top: 1px solid var(--border);
+        }
+
+        .cart-total {
+            display: flex;
+
+            justify-content: space-between;
+
+            font-size: 19px;
+
+            font-weight: 800;
+
+            margin-bottom: 15px;
+        }
+
+        .full-btn {
+            width: 100%;
+        }
+
+        .empty-cart {
+            text-align: center;
+
+            color: var(--muted);
+
+            padding: 70px 20px;
+        }
+
+        /* =========================
+           CHECKOUT
+        ========================== */
+
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+
+            background: rgba(0,0,0,.55);
+
+            z-index: 3000;
+
+            display: none;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .checkout-modal {
+            width: min(500px,100%);
+
+            max-height: 90vh;
+
+            overflow-y: auto;
+
+            background: white;
+
+            border-radius: 25px;
+
+            padding: 30px;
+
+            animation: modalIn .25s ease;
+        }
+
+        @keyframes modalIn {
+
+            from {
+                opacity: 0;
+                transform: scale(.95) translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+
+        }
+
+        .checkout-header {
+            display: flex;
+
+            justify-content: space-between;
+            align-items: center;
+
+            margin-bottom: 25px;
+        }
+
+        .checkout-header h3 {
+            font-size: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+            margin-bottom: 7px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+
+            border: 1px solid #dce2d9;
+
+            border-radius: 12px;
+
+            padding: 13px 14px;
+
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--green);
+        }
+
+        .form-group textarea {
+            min-height: 90px;
+
+            resize: vertical;
+        }
+
+        .payment-box {
+            background: var(--green-light);
+
+            border-radius: 13px;
+
+            padding: 14px;
+
+            margin: 20px 0;
+
+            font-size: 14px;
+        }
+
+        /* =========================
+           TOAST
+        ========================== */
+
+        .toast {
+            position: fixed;
+
+            bottom: 25px;
+            right: 25px;
+
+            z-index: 5000;
+
+            background: var(--green-dark);
+            color: white;
+
+            padding: 14px 18px;
+
+            border-radius: 12px;
+
+            box-shadow: var(--shadow);
+
+            transform: translateY(100px);
+
+            opacity: 0;
+
+            transition: .3s ease;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width:900px) {
+
+            .nav-links {
+                position: fixed;
+
+                top: 78px;
+                left: 15px;
+                right: 15px;
+
+                background: white;
+
+                border-radius: 18px;
+
+                box-shadow: var(--shadow);
+
+                padding: 20px;
+
+                flex-direction: column;
+
+                align-items: stretch;
+
+                gap: 4px;
+
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 12px;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+
+                gap: 45px;
+            }
+
+            .hero {
+                padding-top: 125px;
+            }
+
+            .hero-image {
+                height: 430px;
+            }
+
+            .trust-container {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+
+                max-width: 550px;
+
+                margin: auto;
+            }
+
+            .features {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .steps {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+
+                max-width: 600px;
+
+                margin: auto;
+            }
+
+            .footer-container {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+        }
+
+        @media (max-width:600px) {
+
+            .nav-container {
+                padding: 15px 18px;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .logo-icon {
+                width: 36px;
+                height: 36px;
+            }
+
+            .hero {
+                padding: 115px 18px 70px;
+            }
+
+            .hero h1 {
+                font-size: 43px;
+                letter-spacing: -2px;
+            }
+
+            .hero-description {
+                font-size: 16px;
+            }
+
+            .hero-image {
+                height: 350px;
+                border-radius: 25px;
+            }
+
+            .floating-card.one {
+                left: 10px;
+            }
+
+            .floating-card.two {
+                right: 10px;
+            }
+
+            .trust-container {
+                padding: 20px 15px;
+            }
+
+            .trust-item {
+                font-size: 12px;
+
+                text-align: center;
+
+                flex-direction: column;
+            }
+
+            .section {
+                padding: 75px 18px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+
+            .checkout-modal {
+                padding: 22px;
+            }
+
+            .toast {
+                left: 15px;
+                right: 15px;
+                bottom: 15px;
+            }
+
+        }
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================== -->
+
+<header class="navbar" id="navbar">
+
+    <div class="nav-container">
+
+        <a href="#home" class="logo">
+            <span class="logo-icon">🌿</span>
+            FreshDesi
+        </a>
+
+
+        <nav class="nav-links" id="navLinks">
+
+            <a href="#home">
+                Home
+            </a>
+
+            <a href="#products">
+                Products
+            </a>
+
+            <a href="#why">
+                Why Us
+            </a>
+
+            <a href="#how">
+                How It Works
+            </a>
+
+            <a href="#contact">
+                Contact
+            </a>
+
+            <a
+                href="#"
+                class="cart-nav"
+                onclick="openCart(); return false;"
+            >
+                🛒 Cart
+                <span id="cartCount">0</span>
+            </a>
+
+        </nav>
+
+
+        <button
+            class="menu-btn"
+            onclick="toggleMenu()"
+        >
+            ☰
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================== -->
+
+<section class="hero" id="home">
+
+    <div class="hero-container">
+
+        <div>
+
+            <div class="eyebrow">
+                🌱 Fresh • Natural • Trusted
+            </div>
+
+
+            <h1>
+                Freshness You Can
+                <span>Taste.</span>
+            </h1>
+
+
+            <p class="hero-description">
+                Desi eggs, quality detox chicken and fresh milk —
+                sourced from trusted suppliers and delivered
+                straight to your doorstep.
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a
+                    href="#products"
+                    class="btn btn-primary"
+                >
+                    Shop Fresh Products →
+                </a>
+
+
+                <a
+                    href="#how"
+                    class="btn btn-secondary"
+                >
+                    How It Works
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-visual">
+
+            <div class="hero-image"></div>
+
+
+            <div class="floating-card one">
+
+                <div class="floating-icon">
+                    🥚
+                </div>
+
+                <div>
+
+                    <strong>
+                        Fresh Every Day
+                    </strong>
+
+                    <small>
+                        Quality products
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="floating-card two">
+
+                <div class="floating-icon">
+                    🚚
+                </div>
+
+                <div>
+
+                    <strong>
+                        Home Delivery
+                    </strong>
+
+                    <small>
+                        Fresh to your door
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     TRUST BAR
+========================== -->
+
+<section class="trust">
+
+    <div class="trust-container">
+
+        <div class="trust-item">
+            <span>🌱</span>
+            Fresh Daily
+        </div>
+
+        <div class="trust-item">
+            <span>🤝</span>
+            Trusted Vendors
+        </div>
+
+        <div class="trust-item">
+            <span>✓</span>
+            Quality Products
+        </div>
+
+        <div class="trust-item">
+            <span>🚚</span>
+            Home Delivery
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PRODUCTS
+========================== -->
+
+<section
+    class="section products"
+    id="products"
+>
+
+    <div class="section-container">
+
+        <div class="section-heading">
+
+            <div class="eyebrow">
+                Our Products
+            </div>
+
+            <h2>
+                Fresh Picks For Your Family
+            </h2>
+
+            <p>
+                Quality products, carefully sourced and delivered fresh.
+            </p>
+
+        </div>
+
+
+        <div class="product-grid">
+
+
+            <!-- DESI EGGS -->
+
+            <div class="product-card">
+
+                <div class="product-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=900&q=85"
+                        alt="Fresh Desi Eggs"
+                    >
+
+                    <span class="fresh-badge">
+                        🥚 Fresh
+                    </span>
+
+                </div>
+
+
+                <div class="product-content">
+
+                    <h3>
+                        Desi Anday
+                    </h3>
+
+                    <p>
+                        Fresh desi eggs sourced from trusted
+                        local suppliers.
+                    </p>
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+
+                    <div class="product-bottom">
+
+                        <div class="price">
+                            Rs. 450
+                            <small>/ Dozen</small>
+                        </div>
+
+
+                        <button
+                            class="add-btn"
+                            onclick="addToCart(1)"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- DETOX CHICKEN -->
+
+            <div class="product-card">
+
+                <div class="product-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&w=900&q=85"
+                        alt="Fresh Detox Chicken"
+                    >
+
+                    <span class="fresh-badge">
+                        🍗 Fresh
+                    </span>
+
+                </div>
+
+
+                <div class="product-content">
+
+                    <h3>
+                        Detox Chicken
+                    </h3>
+
+                    <p>
+                        Fresh quality chicken sourced from
+                        trusted suppliers.
+                    </p>
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+
+                    <div class="product-bottom">
+
+                        <div class="price">
+                            Rs. 950
+                            <small>/ KG</small>
+                        </div>
+
+
+                        <button
+                            class="add-btn"
+                            onclick="addToCart(2)"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- MILK -->
+
+            <div class="product-card">
+
+                <div class="product-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=900&q=85"
+                        alt="Fresh Milk"
+                    >
+
+                    <span class="fresh-badge">
+                        🥛 Fresh
+                    </span>
+
+                </div>
+
+
+                <div class="product-content">
+
+                    <h3>
+                        Fresh Milk
+                    </h3>
+
+                    <p>
+                        Fresh milk sourced from trusted local
+                        suppliers and delivered with care.
+                    </p>
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+
+                    <div class="product-bottom">
+
+                        <div class="price">
+                            Rs. 250
+                            <small>/ Liter</small>
+                        </div>
+
+
+                        <button
+                            class="add-btn"
+                            onclick="addToCart(3)"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     WHY US
+========================== -->
+
+<section
+    class="section why"
+    id="why"
+>
+
+    <div class="section-container">
+
+        <div class="section-heading">
+
+            <div class="eyebrow">
+                Why FreshDesi?
+            </div>
+
+            <h2>
+                Freshness Comes First
+            </h2>
+
+            <p>
+                Quality products, trusted suppliers and
+                convenient home delivery.
+            </p>
+
+        </div>
+
+
+        <div class="features">
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    🌱
+                </div>
+
+                <h3>
+                    Freshness First
+                </h3>
+
+                <p>
+                    Fresh products sourced regularly from
+                    trusted suppliers.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    🤝
+                </div>
+
+                <h3>
+                    Trusted Suppliers
+                </h3>
+
+                <p>
+                    We work with suppliers we trust for
+                    quality and consistency.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    ✓
+                </div>
+
+                <h3>
+                    Quality You Trust
+                </h3>
+
+                <p>
+                    We focus on giving your family quality
+                    everyday products.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    🚚
+                </div>
+
+                <h3>
+                    Doorstep Delivery
+                </h3>
+
+                <p>
+                    Order online and get your products
+                    delivered to your home.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     HOW IT WORKS
+========================== -->
+
+<section
+    class="section how"
+    id="how"
+>
+
+    <div class="section-container">
+
+        <div class="section-heading">
+
+            <div class="eyebrow">
+                Simple Process
+            </div>
+
+            <h2>
+                How It Works
+            </h2>
+
+            <p>
+                Getting fresh products is just four simple steps.
+            </p>
+
+        </div>
+
+
+        <div class="steps">
+
+            <div class="step">
+
+                <div class="step-number">
+                    01
+                </div>
+
+                <h3>
+                    Choose Products
+                </h3>
+
+                <p>
+                    Select the products you want.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    02
+                </div>
+
+                <h3>
+                    Add To Cart
+                </h3>
+
+                <p>
+                    Choose quantities and review your order.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    03
+                </div>
+
+                <h3>
+                    Send Order
+                </h3>
+
+                <p>
+                    Your order opens directly in WhatsApp.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    04
+                </div>
+
+                <h3>
+                    Get Delivery
+                </h3>
+
+                <p>
+                    We confirm and deliver your order.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CTA
+========================== -->
+
+<section class="cta">
+
+    <div class="cta-container">
+
+        <h2>
+            Freshness Starts Here.
+        </h2>
+
+        <p>
+            Bring quality Desi eggs, chicken and fresh milk
+            to your home today.
+        </p>
+
+        <a
+            href="#products"
+            class="btn btn-primary"
+        >
+            Order Fresh Products →
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     TESTIMONIALS
+========================== -->
+
+<section class="section testimonials">
+
+    <div class="section-container">
+
+        <div class="section-heading">
+
+            <div class="eyebrow">
+                Customer Love
+            </div>
+
+            <h2>
+                What Our Customers Say
+            </h2>
+
+        </div>
+
+
+        <div class="testimonial-grid">
+
+            <div class="testimonial">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    "The eggs were fresh and delivery was quick.
+                    Really happy with the quality."
+                </p>
+
+                <div class="customer">
+                    — Ayesha K.
+                </div>
+
+            </div>
+
+
+            <div class="testimonial">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    "The chicken was fresh and nicely packed.
+                    Will definitely order again."
+                </p>
+
+                <div class="customer">
+                    — Hamza R.
+                </div>
+
+            </div>
+
+
+            <div class="testimonial">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    "Very convenient for getting fresh milk
+                    delivered at home."
+                </p>
+
+                <div class="customer">
+                    — Sara M.
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FAQ
+========================== -->
+
+<section class="section faq">
+
+    <div class="section-container">
+
+        <div class="section-heading">
+
+            <div class="eyebrow">
+                FAQ
+            </div>
+
+            <h2>
+                Frequently Asked Questions
+            </h2>
+
+        </div>
+
+
+        <div class="faq-list">
+
+
+            <div class="faq-item">
+
+                <button
+                    class="faq-question"
+                    onclick="toggleFaq(this)"
+                >
+                    Where do you source your products?
+
+                    <span class="faq-icon">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="faq-answer">
+                    We source our products from trusted local
+                    suppliers and vendors.
+                </div>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <button
+                    class="faq-question"
+                    onclick="toggleFaq(this)"
+                >
+                    How fresh are the products?
+
+                    <span class="faq-icon">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="faq-answer">
+                    We arrange products according to customer
+                    demand to maintain freshness.
+                </div>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <button
+                    class="faq-question"
+                    onclick="toggleFaq(this)"
+                >
+                    Do you offer home delivery?
+
+                    <span class="faq-icon">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="faq-answer">
+                    Yes. We currently offer local doorstep delivery.
+                </div>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <button
+                    class="faq-question"
+                    onclick="toggleFaq(this)"
+                >
+                    What payment method do you accept?
+
+                    <span class="faq-icon">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="faq-answer">
+                    Currently we accept Cash on Delivery.
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================== -->
+
+<section
+    class="cta"
+    id="contact"
+>
+
+    <div class="cta-container">
+
+        <h2>
+            Ready to Order Fresh?
+        </h2>
+
+        <p>
+            Choose your products and send your order
+            directly to us on WhatsApp.
+        </p>
+
+
+        <a
+            href="#products"
+            class="btn btn-primary"
+        >
+            Start Your Order →
+        </a>
+
+
+        <p style="margin-top:25px;margin-bottom:0;">
+            📱 WhatsApp:
+            <span id="displayPhone">
+                0300-0000000
+            </span>
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================== -->
+
+<footer>
+
+    <div class="footer-container">
+
+        <div class="footer-brand">
+
+            <div
+                class="logo"
+                style="color:white;"
+            >
+                <span class="logo-icon">
+                    🌿
+                </span>
+
+                FreshDesi
+            </div>
+
+
+            <p>
+                Fresh products for your family,
+                sourced from trusted suppliers.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <div class="footer-title">
+                Quick Links
+            </div>
+
+            <div class="footer-links">
+
+                <a href="#home">
+                    Home
+                </a>
+
+                <a href="#products">
+                    Products
+                </a>
+
+                <a href="#why">
+                    Why Us
+                </a>
+
+                <a href="#contact">
+                    Contact
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div>
+
+            <div class="footer-title">
+                Products
+            </div>
+
+            <div class="footer-links">
+
+                <a href="#products">
+                    Desi Anday
+                </a>
+
+                <a href="#products">
+                    Detox Chicken
+                </a>
+
+                <a href="#products">
+                    Fresh Milk
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div>
+
+            <div class="footer-title">
+                Contact
+            </div>
+
+            <div class="footer-links">
+
+                <a
+                    href="#"
+                    onclick="openWhatsApp(); return false;"
+                >
+                    WhatsApp
+                </a>
+
+                <a href="tel:03000000000">
+                    0300-0000000
+                </a>
+
+                <a href="mailto:hello@freshdesi.com">
+                    hello@freshdesi.com
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+        © 2026 FreshDesi. All rights reserved.
+    </div>
+
+</footer>
+
+
+<!-- =========================
+     CART OVERLAY
+========================== -->
+
+<div
+    class="overlay"
+    id="overlay"
+    onclick="closeCart()"
+></div>
+
+
+<!-- =========================
+     CART DRAWER
+========================== -->
+
+<div
+    class="cart-drawer"
+    id="cartDrawer"
+>
+
+    <div class="cart-header">
+
+        <h3>
+            Your Cart
+        </h3>
+
+        <button
+            class="close-btn"
+            onclick="closeCart()"
+        >
+            ×
+        </button>
+
+    </div>
+
+
+    <div
+        class="cart-items"
+        id="cartItems"
+    ></div>
+
+
+    <div class="cart-footer">
+
+        <div class="cart-total">
+
+            <span>
+                Total
+            </span>
+
+            <span id="cartTotal">
+                Rs. 0
+            </span>
+
+        </div>
+
+
+        <button
+            class="btn btn-primary full-btn"
+            onclick="openCheckout()"
+        >
+            Order on WhatsApp
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     CHECKOUT MODAL
+========================== -->
+
+<div
+    class="modal-overlay"
+    id="checkoutModal"
+>
+
+    <div class="checkout-modal">
+
+        <div class="checkout-header">
+
+            <h3>
+                Your Details
+            </h3>
+
+            <button
+                class="close-btn"
+                onclick="closeCheckout()"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <form onsubmit="submitOrder(event)">
+
+
+            <div class="form-group">
+
+                <label>
+                    Your Name
+                </label>
+
+                <input
+                    type="text"
+                    id="customerName"
+                    placeholder="Enter your name"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Phone Number
+                </label>
+
+                <input
+                    type="tel"
+                    id="customerPhone"
+                    placeholder="0300-1234567"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Delivery Address
+                </label>
+
+                <textarea
+                    id="customerAddress"
+                    placeholder="Enter your complete delivery address"
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <div class="payment-box">
+
+                💵
+                <strong>
+                    Cash on Delivery
+                </strong>
+
+                <br>
+
+                Pay when your order is delivered.
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="btn btn-primary full-btn"
+            >
+                💬 Send Order on WhatsApp
+            </button>
+
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     TOAST
+========================== -->
+
+<div
+    class="toast"
+    id="toast"
+>
+    Added to cart ✓
+</div>
+
+
+<script>
+
+/* ============================================================
+   ⭐ YOUR WHATSAPP ADMIN NUMBER
+   ============================================================
+
+   IMPORTANT:
+
+   If your WhatsApp number is:
+ 
+
+   NO:
+   +92
+   spaces
+   -
+   brackets
+
+   ============================================================ */
+
+const WHATSAPP_NUMBER = "923224551468";
+
+
+/* ============================================================
+   PRODUCTS
+   ============================================================ */
+
+const products = {
+
+    1: {
+        id: 1,
+        name: "Desi Anday",
+        price: 450,
+        unit: "Dozen",
+        emoji: "🥚",
+        image:
+            "https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=300&q=80"
+    },
+
+    2: {
+        id: 2,
+        name: "Detox Chicken",
+        price: 950,
+        unit: "KG",
+        emoji: "🍗",
+        image:
+            "https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&w=300&q=80"
+    },
+
+    3: {
+        id: 3,
+        name: "Fresh Milk",
+        price: 250,
+        unit: "Liter",
+        emoji: "🥛",
+        image:
+            "https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=300&q=80"
+    }
+
+};
+
+
+/* ============================================================
+   CART
+   ============================================================ */
+
+let cart =
+    JSON.parse(
+        localStorage.getItem("freshdesi_cart")
+    ) || [];
+
+
+function saveCart() {
+
+    localStorage.setItem(
+        "freshdesi_cart",
+        JSON.stringify(cart)
+    );
+
+}
+
+
+function addToCart(productId) {
+
+    const existing =
+        cart.find(
+            item => item.id === productId
+        );
+
+
+    if (existing) {
+
+        existing.quantity++;
+
+    } else {
+
+        cart.push({
+            id: productId,
+            quantity: 1
+        });
+
+    }
+
+
+    saveCart();
+
+    updateCart();
+
+    showToast(
+        products[productId].name +
+        " added to cart ✓"
+    );
+
+}
+
+
+function removeFromCart(productId) {
+
+    cart =
+        cart.filter(
+            item => item.id !== productId
+        );
+
+
+    saveCart();
+
+    updateCart();
+
+}
+
+
+function changeQuantity(
+    productId,
+    amount
+) {
+
+    const item =
+        cart.find(
+            item => item.id === productId
+        );
+
+
+    if (!item) {
+        return;
+    }
+
+
+    item.quantity += amount;
+
+
+    if (item.quantity <= 0) {
+
+        removeFromCart(productId);
+
+        return;
+
+    }
+
+
+    saveCart();
+
+    updateCart();
+
+}
+
+
+function getCartTotal() {
+
+    return cart.reduce(
+        (total, item) => {
+
+            const product =
+                products[item.id];
+
+            return total +
+                product.price *
+                item.quantity;
+
+        },
+        0
+    );
+
+}
+
+
+function getCartCount() {
+
+    return cart.reduce(
+        (total, item) =>
+            total + item.quantity,
+        0
+    );
+
+}
+
+
+/* ============================================================
+   UPDATE CART
+   ============================================================ */
+
+function updateCart() {
+
+    const cartItems =
+        document.getElementById(
+            "cartItems"
+        );
+
+
+    const cartCount =
+        document.getElementById(
+            "cartCount"
+        );
+
+
+    const cartTotal =
+        document.getElementById(
+            "cartTotal"
+        );
+
+
+    cartCount.textContent =
+        getCartCount();
+
+
+    cartTotal.textContent =
+        "Rs. " +
+        getCartTotal()
+            .toLocaleString();
+
+
+    if (cart.length === 0) {
+
+        cartItems.innerHTML = `
+
+            <div class="empty-cart">
+
+                <div
+                    style="
+                        font-size:45px;
+                        margin-bottom:15px;
+                    "
+                >
+                    🛒
+                </div>
+
+                <strong>
+                    Your cart is empty.
+                </strong>
+
+                <p style="margin-top:8px;">
+                    Add some fresh products!
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    cartItems.innerHTML =
+        cart.map(item => {
+
+            const product =
+                products[item.id];
+
+
+            const itemTotal =
+                product.price *
+                item.quantity;
+
+
+            return `
+
+                <div class="cart-item">
+
+                    <img
+                        src="${product.image}"
+                        class="cart-item-image"
+                        alt="${product.name}"
+                    >
+
+
+                    <div class="cart-item-info">
+
+                        <strong>
+                            ${product.emoji}
+                            ${product.name}
+                        </strong>
+
+
+                        <small>
+                            Rs.
+                            ${product.price.toLocaleString()}
+                            /
+                            ${product.unit}
+                        </small>
+
+
+                        <div class="quantity">
+
+                            <button
+                                onclick="
+                                    changeQuantity(
+                                        ${product.id},
+                                        -1
+                                    )
+                                "
+                            >
+                                −
+                            </button>
+
+
+                            <span>
+                                ${item.quantity}
+                            </span>
+
+
+                            <button
+                                onclick="
+                                    changeQuantity(
+                                        ${product.id},
+                                        1
+                                    )
+                                "
+                            >
+                                +
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <strong>
+                        Rs.
+                        ${itemTotal.toLocaleString()}
+                    </strong>
+
+                </div>
+
+            `;
+
+        }).join("");
+
+}
+
+
+/* ============================================================
+   CART OPEN / CLOSE
+   ============================================================ */
+
+function openCart() {
+
+    document
+        .getElementById("cartDrawer")
+        .classList.add("active");
+
+
+    document
+        .getElementById("overlay")
+        .classList.add("active");
+
+
+    updateCart();
+
+}
+
+
+function closeCart() {
+
+    document
+        .getElementById("cartDrawer")
+        .classList.remove("active");
+
+
+    document
+        .getElementById("overlay")
+        .classList.remove("active");
+
+}
+
+
+/* ============================================================
+   CHECKOUT
+   ============================================================ */
+
+function openCheckout() {
+
+    if (cart.length === 0) {
+
+        showToast(
+            "Your cart is empty."
+        );
+
+        return;
+    }
+
+
+    document
+        .getElementById("checkoutModal")
+        .classList.add("active");
+
+}
+
+
+function closeCheckout() {
+
+    document
+        .getElementById("checkoutModal")
+        .classList.remove("active");
+
+}
+
+
+/* ============================================================
+   ⭐ SEND ORDER TO WHATSAPP
+   ============================================================ */
+
+function submitOrder(event) {
+
+    event.preventDefault();
+
+
+    if (cart.length === 0) {
+
+        showToast(
+            "Your cart is empty."
+        );
+
+        return;
+    }
+
+
+    const name =
+        document
+            .getElementById(
+                "customerName"
+            )
+            .value
+            .trim();
+
+
+    const phone =
+        document
+            .getElementById(
+                "customerPhone"
+            )
+            .value
+            .trim();
+
+
+    const address =
+        document
+            .getElementById(
+                "customerAddress"
+            )
+            .value
+            .trim();
+
+
+    /*
+       Build WhatsApp message
+    */
+
+    let message =
+
+`🛒 *NEW FRESHDESI ORDER*
+
+👤 *Customer:* ${name}
+📱 *Phone:* ${phone}
+📍 *Address:* ${address}
+
+━━━━━━━━━━━━━━━━━━
+
+🛍️ *ORDER DETAILS*
+`;
+
+
+    cart.forEach(item => {
+
+        const product =
+            products[item.id];
+
+
+        const itemTotal =
+            product.price *
+            item.quantity;
+
+
+        message += `
+
+${product.emoji} *${product.name}*
+Quantity: ${item.quantity} ${product.unit}
+Price: Rs. ${product.price.toLocaleString()}
+Subtotal: Rs. ${itemTotal.toLocaleString()}
+`;
+
+    });
+
+
+    const subtotal =
+        getCartTotal();
+
+
+    /*
+       Change delivery charges here
+    */
+
+    const delivery = 150;
+
+
+    const total =
+        subtotal + delivery;
+
+
+    message += `
+
+━━━━━━━━━━━━━━━━━━
+
+💰 *Subtotal:* Rs. ${subtotal.toLocaleString()}
+🚚 *Delivery:* Rs. ${delivery.toLocaleString()}
+
+💵 *TOTAL:* Rs. ${total.toLocaleString()}
+
+💳 *Payment:* Cash on Delivery
+
+━━━━━━━━━━━━━━━━━━
+
+Thank you for ordering from FreshDesi 🌿
+`;
+
+
+    /*
+       Encode the message
+       so spaces, emojis and line breaks
+       work correctly in the URL.
+    */
+
+    const encodedMessage =
+        encodeURIComponent(message);
+
+
+    /*
+       This creates:
+
+       https://api.whatsapp.com/send/?phone=NUMBER&text=MESSAGE
+
+    */
+
+    const whatsappUrl =
+        "https://api.whatsapp.com/send/?phone=" +
+        WHATSAPP_NUMBER +
+        "&text=" +
+        encodedMessage;
+
+
+    /*
+       Open WhatsApp
+    */
+
+    window.open(
+        whatsappUrl,
+        "_blank"
+    );
+
+
+    /*
+       Clear cart after opening WhatsApp
+    */
+
+    cart = [];
+
+
+    localStorage.removeItem(
+        "freshdesi_cart"
+    );
+
+
+    updateCart();
+
+    closeCheckout();
+
+    closeCart();
+
+}
+
+
+/* ============================================================
+   DIRECT WHATSAPP BUTTON
+   ============================================================ */
+
+function openWhatsApp() {
+
+    const message =
+        "Hello FreshDesi! 👋 I want to place an order.";
+
+
+    const url =
+        "https://api.whatsapp.com/send/?phone=" +
+        WHATSAPP_NUMBER +
+        "&text=" +
+        encodeURIComponent(message);
+
+
+    window.open(
+        url,
+        "_blank"
+    );
+
+}
+
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+
+function toggleFaq(button) {
+
+    const item =
+        button.parentElement;
+
+
+    document
+        .querySelectorAll(".faq-item")
+        .forEach(faq => {
+
+            if (faq !== item) {
+
+                faq.classList.remove(
+                    "active"
+                );
+
+            }
+
+        });
+
+
+    item.classList.toggle(
+        "active"
+    );
+
+}
+
+
+/* ============================================================
+   MOBILE MENU
+   ============================================================ */
+
+function toggleMenu() {
+
+    document
+        .getElementById("navLinks")
+        .classList.toggle(
+            "active"
+        );
+
+}
+
+
+document
+    .querySelectorAll(
+        ".nav-links a"
+    )
+    .forEach(link => {
+
+        link.addEventListener(
+            "click",
+            () => {
+
+                document
+                    .getElementById(
+                        "navLinks"
+                    )
+                    .classList.remove(
+                        "active"
+                    );
+
+            }
+        );
+
+    });
+
+
+/* ============================================================
+   NAVBAR SCROLL
+   ============================================================ */
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        const navbar =
+            document.getElementById(
+                "navbar"
+            );
+
+
+        if (window.scrollY > 30) {
+
+            navbar.classList.add(
+                "scrolled"
+            );
+
+        } else {
+
+            navbar.classList.remove(
+                "scrolled"
+            );
+
+        }
+
+    }
+);
+
+
+/* ============================================================
+   INITIALIZE
+   ============================================================ */
+
+updateCart();
+
+</script>
+
+</body>
+</html>
