@@ -1171,6 +1171,73 @@
             font-size: 14px;
         }
 
+
+        /* =========================
+           CHECKOUT ORDER SUMMARY
+        ========================== */
+
+        .order-summary {
+            background: #fafbf7;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 18px;
+            margin: 20px 0;
+        }
+
+        .order-summary-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+        }
+
+        .order-summary-title strong {
+            font-size: 16px;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 14px;
+        }
+
+        .summary-item-info {
+            flex: 1;
+        }
+
+        .summary-item-info strong {
+            display: block;
+            color: var(--text);
+        }
+
+        .summary-item-info small {
+            color: var(--muted);
+        }
+
+        .summary-item-price {
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 10px;
+            font-size: 14px;
+        }
+
+        .summary-row.total {
+            margin-top: 8px;
+            padding-top: 14px;
+            border-top: 2px solid var(--border);
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--green);
+        }
+
         /* =========================
            TOAST
         ========================== */
@@ -2552,6 +2619,34 @@
             </div>
 
 
+            <!-- ORDER SUMMARY -->
+            <div class="order-summary">
+
+                <div class="order-summary-title">
+                    <strong>🛍️ Order Summary</strong>
+                    <span id="summaryItemCount">0 items</span>
+                </div>
+
+                <div id="checkoutOrderItems"></div>
+
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <strong id="checkoutSubtotal">Rs. 0</strong>
+                </div>
+
+                <div class="summary-row">
+                    <span>Delivery</span>
+                    <strong id="checkoutDelivery">Rs. 150</strong>
+                </div>
+
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <strong id="checkoutTotal">Rs. 0</strong>
+                </div>
+
+            </div>
+
+
             <div class="payment-box">
 
                 💵
@@ -2980,6 +3075,82 @@ function closeCart() {
    CHECKOUT
    ============================================================ */
 
+function updateCheckoutSummary() {
+
+    const itemsContainer =
+        document.getElementById("checkoutOrderItems");
+
+    const itemCount =
+        document.getElementById("summaryItemCount");
+
+    const subtotalElement =
+        document.getElementById("checkoutSubtotal");
+
+    const deliveryElement =
+        document.getElementById("checkoutDelivery");
+
+    const totalElement =
+        document.getElementById("checkoutTotal");
+
+    const delivery = 150;
+
+    if (cart.length === 0) {
+        itemsContainer.innerHTML = "";
+        itemCount.textContent = "0 items";
+        subtotalElement.textContent = "Rs. 0";
+        deliveryElement.textContent = "Rs. 0";
+        totalElement.textContent = "Rs. 0";
+        return;
+    }
+
+    itemsContainer.innerHTML = cart.map(item => {
+
+        const product = products[item.id];
+
+        const itemTotal =
+            product.price * item.quantity;
+
+        return `
+            <div class="summary-item">
+
+                <div class="summary-item-info">
+                    <strong>
+                        ${product.emoji} ${product.name}
+                    </strong>
+
+                    <small>
+                        ${item.quantity} ${product.unit}
+                        × Rs. ${product.price.toLocaleString()}
+                    </small>
+                </div>
+
+                <div class="summary-item-price">
+                    Rs. ${itemTotal.toLocaleString()}
+                </div>
+
+            </div>
+        `;
+
+    }).join("");
+
+    const count = getCartCount();
+    const subtotal = getCartTotal();
+    const total = subtotal + delivery;
+
+    itemCount.textContent =
+        count + (count === 1 ? " item" : " items");
+
+    subtotalElement.textContent =
+        "Rs. " + subtotal.toLocaleString();
+
+    deliveryElement.textContent =
+        "Rs. " + delivery.toLocaleString();
+
+    totalElement.textContent =
+        "Rs. " + total.toLocaleString();
+}
+
+
 function openCheckout() {
 
     if (cart.length === 0) {
@@ -2991,6 +3162,8 @@ function openCheckout() {
         return;
     }
 
+
+    updateCheckoutSummary();
 
     document
         .getElementById("checkoutModal")
