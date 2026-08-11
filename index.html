@@ -827,6 +827,134 @@
         }
 
         /* =========================
+           OWNER
+        ========================== */
+
+        .owner {
+            background: var(--cream);
+        }
+
+        .owner-card {
+            max-width: 900px;
+            margin: auto;
+
+            background: white;
+
+            border: 1px solid var(--border);
+            border-radius: 30px;
+
+            padding: 50px;
+
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 45px;
+
+            align-items: center;
+
+            box-shadow: var(--shadow);
+        }
+
+        .owner-image {
+            width: 280px;
+            height: 280px;
+
+            border-radius: 25px;
+
+            background: var(--green-light);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 100px;
+
+            overflow: hidden;
+        }
+
+        .owner-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .owner-content h3 {
+            font-size: 28px;
+
+            margin-bottom: 5px;
+        }
+
+        .owner-role {
+            color: var(--green);
+            font-weight: 800;
+            font-size: 14px;
+
+            margin-bottom: 16px;
+        }
+
+        .owner-content p {
+            color: var(--muted);
+
+            margin-bottom: 20px;
+        }
+
+        .owner-social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .owner-social a {
+            width: 44px;
+            height: 44px;
+
+            border-radius: 12px;
+
+            background: var(--green-light);
+            color: var(--green);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 20px;
+
+            transition: .2s;
+        }
+
+        .owner-social a:hover {
+            background: var(--green);
+            color: white;
+        }
+
+        /* =========================
+           MAP
+        ========================== */
+
+        .map-section {
+            background: white;
+        }
+
+        .map-embed {
+            max-width: 1000px;
+            margin: auto;
+
+            border-radius: 25px;
+            overflow: hidden;
+
+            border: 1px solid var(--border);
+
+            box-shadow: var(--shadow);
+
+            min-height: 400px;
+        }
+
+        .map-embed iframe {
+            width: 100%;
+            height: 450px;
+            border: 0;
+            display: block;
+        }
+
+        /* =========================
            FOOTER
         ========================== */
 
@@ -1357,6 +1485,22 @@
                 grid-template-columns: repeat(2,1fr);
             }
 
+            .owner-card {
+                grid-template-columns: 1fr;
+
+                text-align: center;
+
+                padding: 35px 25px;
+            }
+
+            .owner-image {
+                margin: auto;
+            }
+
+            .owner-social {
+                justify-content: center;
+            }
+
         }
 
         @media (max-width:600px) {
@@ -1428,6 +1572,18 @@
                 grid-template-columns: 1fr;
             }
 
+            .owner-card {
+                padding: 25px 20px;
+                gap: 25px;
+            }
+
+            .owner-image {
+                width: 200px;
+                height: 200px;
+
+                font-size: 72px;
+            }
+
             .checkout-modal {
                 padding: 22px;
             }
@@ -1473,6 +1629,14 @@
 
             <a href="#how">
                 How It Works
+            </a>
+
+            <a href="#owner">
+                Owner
+            </a>
+
+            <a href="#location">
+                Location
             </a>
 
             <a href="#contact">
@@ -2196,6 +2360,84 @@
 </section>
 
 <!-- =========================
+     OWNER
+========================== -->
+
+<section
+    class="section owner"
+    id="owner"
+>
+
+    <div class="section-container">
+
+        <div class="section-heading">
+
+            <div class="eyebrow">
+                Meet The Owner
+            </div>
+
+            <h2>
+                The Person Behind Organist
+            </h2>
+
+            <p>
+                Passionate about bringing fresh, quality products to your family.
+            </p>
+
+        </div>
+
+        <div class="owner-card">
+
+            <div class="owner-image">
+                👨‍🌾
+            </div>
+
+            <div class="owner-content">
+
+                <h3>
+                    Awaab Javed
+                </h3>
+
+                <div class="owner-role">
+                    Founder & Owner
+                </div>
+
+                <p>
+                    I started Organist with a simple mission — to provide families with fresh,
+                    quality products they can trust. From Desi eggs to detox chicken and fresh
+                    milk, every product is carefully sourced from trusted local suppliers.
+                    Your family's health and satisfaction is my top priority.
+                </p>
+
+                <div class="owner-social">
+
+
+
+                    <a
+                        href="tel:03224551468"
+                        title="Call"
+                    >
+                        📞
+                    </a>
+
+                    <a
+                        href="mailto:awaabjaved393@gmail.com"
+                        title="Email"
+                    >
+                        ✉️
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
      FAQ
 ========================== -->
 
@@ -2344,6 +2586,57 @@
 </section>
 
 <!-- =========================
+     MAP / LOCATION
+========================== -->
+
+<section
+    class="section map-section"
+    id="location"
+>
+
+    <div class="section-container">
+
+        <div class="section-heading">
+
+            <div class="eyebrow">
+                Find Us
+            </div>
+
+            <h2>
+                Our Location
+            </h2>
+
+            <p>
+                Visit us or find our delivery area on the map.
+            </p>
+
+        </div>
+
+        <div class="map-embed">
+
+            <!-- ============================
+                 PASTE YOUR GOOGLE MAPS
+                 EMBED CODE BELOW
+                 (Replace the iframe below)
+            ============================= -->
+
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3403.5490756886074!2d74.28188737901232!3d31.45407870783521!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3919016840959251%3A0xa17ad28223e5581c!2sBlock%20D%20Phase%201%20Johar%20Town%2C%20Lahore%2C%2054770%2C%20Pakistan!5e0!3m2!1sen!2s!4v1786443535502!5m2!1sen!2s"
+                width="600"
+                height="450"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+            ></iframe>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
      FOOTER
 ========================== -->
 
@@ -2389,6 +2682,14 @@
 
                 <a href="#why">
                     Why Us
+                </a>
+
+                <a href="#owner">
+                    Owner
+                </a>
+
+                <a href="#location">
+                    Location
                 </a>
 
                 <a href="#contact">
