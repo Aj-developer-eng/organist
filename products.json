@@ -1,0 +1,57 @@
+[
+    {
+        "id": 1,
+        "name": "Desi Anday",
+        "price": 450,
+        "unit": "Dozen",
+        "emoji": "🥚",
+        "badge": "🥚 Fresh",
+        "description": "Fresh, wholesome Desi eggs from naturally raised hens, fed with quality natural feed and sourced from trusted local suppliers.",
+        "image": "https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=300&q=80",
+        "largeImage": "https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=900&q=85"
+    },
+    {
+        "id": 2,
+        "name": "Detox Chicken",
+        "price": 950,
+        "unit": "KG",
+        "emoji": "🍗",
+        "badge": "🍗 Fresh",
+        "description": "Fresh, wholesome chicken raised on organic feed, injection-free, sourced from trusted local suppliers and delivered fresh to your doorstep.",
+        "image": "https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&w=300&q=80",
+        "largeImage": "https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&w=900&q=85"
+    },
+    {
+        "id": 3,
+        "name": "Batair Meat",
+        "price": 1000,
+        "unit": "KG",
+        "emoji": "🐦",
+        "badge": "🐦 Fresh",
+        "description": "Fresh, wholesome Batair meat sourced from trusted local suppliers, carefully prepared and delivered fresh to your doorstep.",
+        "image": "https://pk.all.biz/img/pk/catalog/87324.jpg",
+        "largeImage": "https://pk.all.biz/img/pk/catalog/87324.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Fresh Milk",
+        "price": 250,
+        "unit": "Liter",
+        "emoji": "🥛",
+        "badge": "🥛 Fresh",
+        "description": "Pure, fresh milk sourced from trusted local suppliers — naturally rich, injection-free, with no added water or milawat. Freshness and quality you can feel in every sip.",
+        "image": "https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=300&q=80",
+        "largeImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5nKQ_5GV393btWfkjiUz02SjHWw-NlX-gsPb-a5k69IUGCFQldvCzLXcy&s=10"
+    },
+    {
+        "id": 5,
+        "name": "Multani Sohan Halwa",
+        "price": 250,
+        "unit": "KG",
+        "emoji": "🍯",
+        "badge": "🍯 Fresh",
+        "description": "Authentic Multani Sohan Halwa — rich, traditional dessert made with premium ingredients, offering the perfect balance of sweetness and texture in every bite.",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWm6znkhMbIcG1auHgU0XYvsWjg33QPSfCbB0R59Ql4dMq0iDo4VlWzZ3r&s=10",
+        "largeImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWm6znkhMbIcG1auHgU0XYvsWjg33QPSfCbB0R59Ql4dMq0iDo4VlWzZ3r&s=10"
+    }
+]
