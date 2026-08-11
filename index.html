@@ -1819,212 +1819,21 @@
 
         </div>
 
-        <div class="product-grid">
-
-            <!-- DESI EGGS -->
-
-            <div class="product-card">
-
-                <div class="product-image">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=900&q=85"
-                        alt="Fresh Desi Eggs"
-                    >
-
-                    <span class="fresh-badge">
-                        🥚 Fresh
-                    </span>
-
-                </div>
-
-                <div class="product-content">
-
-                    <h3>
-                        Desi Anday
-                    </h3>
-
-                    <p>
-                        Fresh, wholesome Desi eggs from naturally raised hens, fed with quality natural feed and sourced from trusted local suppliers.
-                    </p>
-
-                    <div class="stars">
-                        ★★★★★
-                    </div>
-
-                    <div class="product-bottom">
-
-                        <div class="price">
-                            Rs. 450
-                            <small>/ Dozen</small>
-                        </div>
-
-                        <button
-                            class="add-btn"
-                            onclick="addToCart(1)"
-                        >
-                            Add to Cart
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- DETOX CHICKEN -->
-
-            <div class="product-card">
-
-                <div class="product-image">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&w=900&q=85"
-                        alt="Fresh Detox Chicken"
-                    >
-
-                    <span class="fresh-badge">
-                        🍗 Fresh
-                    </span>
-
-                </div>
-
-                <div class="product-content">
-
-                    <h3>
-                        Detox Chicken
-                    </h3>
-
-                    <p>
-                        Fresh, wholesome chicken raised on organic feed, injection-free,
-                        sourced from trusted local suppliers and delivered fresh to your
-                        doorstep.
-                    </p>
-
-                    <div class="stars">
-                        ★★★★★
-                    </div>
-
-                    <div class="product-bottom">
-
-                        <div class="price">
-                            Rs. 950
-                            <small>/ KG</small>
-                        </div>
-
-                        <button
-                            class="add-btn"
-                            onclick="addToCart(2)"
-                        >
-                            Add to Cart
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- BATAIR -->
-
-            <div class="product-card">
-
-                <div class="product-image">
-
-                    <img
-                        src="https://pk.all.biz/img/pk/catalog/87324.jpg"
-                        alt="Fresh Batair Meat"
-                    >
-
-                    <span class="fresh-badge">
-                        🐦 Fresh
-                    </span>
-
-                </div>
-
-                <div class="product-content">
-
-                    <h3>
-                        Batair Meat
-                    </h3>
-
-                    <p>
-                        Fresh, wholesome Batair meat sourced from trusted local suppliers, carefully prepared and delivered fresh to your doorstep.
-                    </p>
-
-                    <div class="stars">
-                        ★★★★★
-                    </div>
-
-                    <div class="product-bottom">
-
-                        <div class="price">
-                            Rs. 1000
-                            <small>/ KG</small>
-                        </div>
-
-                        <button
-                            class="add-btn"
-                            onclick="addToCart(3)"
-                        >
-                            Add to Cart
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- MILK -->
-
-            <div class="product-card">
-
-                <div class="product-image">
-
-                    <img
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5nKQ_5GV393btWfkjiUz02SjHWw-NlX-gsPb-a5k69IUGCFQldvCzLXcy&s=10"
-                        alt="Fresh Milk"
-                    >
-
-                    <span class="fresh-badge">
-                        🥛 Fresh
-                    </span>
-
-                </div>
-
-                <div class="product-content">
-
-                    <h3>
-                        Fresh Milk
-                    </h3>
-
-                    <p>
-                        Pure, fresh milk sourced from trusted local suppliers — naturally rich, injection-free, with no added water or milawat. Freshness and quality you can feel in every sip.
-                    </p>
-
-                    <div class="stars">
-                        ★★★★★
-                    </div>
-
-                    <div class="product-bottom">
-
-                        <div class="price">
-                            Rs. 250
-                            <small>/ Liter</small>
-                        </div>
-
-                        <button
-                            class="add-btn"
-                            onclick="addToCart(4)"
-                        >
-                            Add to Cart
-                        </button>
-
-                    </div>
-
-                </div>
-
+        <div
+            class="product-grid"
+            id="productGrid"
+        >
+
+            <div
+                style="
+                    grid-column:1/-1;
+                    text-align:center;
+                    padding:40px;
+                    color:var(--muted);
+                "
+                id="productLoading"
+            >
+                Loading products…
             </div>
 
         </div>
@@ -3002,52 +2811,125 @@ const WHATSAPP_NUMBER = "923224551468";
 
 
 /* ============================================================
-   PRODUCTS
+   PRODUCTS (fetched from products.json)
    ============================================================ */
 
-const products = {
+let products = {};
 
-    1: {
-        id: 1,
-        name: "Desi Anday",
-        price: 450,
-        unit: "Dozen",
-        emoji: "🥚",
-        image:
-            "https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=300&q=80"
-    },
 
-    2: {
-        id: 2,
-        name: "Detox Chicken",
-        price: 950,
-        unit: "KG",
-        emoji: "🍗",
-        image:
-            "https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&w=300&q=80"
-    },
+function renderProducts() {
 
-    3: {
-        id: 3,
-        name: "Batair Meat",
-        price: 950,
-        unit: "KG",
-        emoji: "🐦",
-        image:
-            "https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&w=300&q=80"
-    },
+    const grid =
+        document.getElementById(
+            "productGrid"
+        );
 
-    4: {
-        id: 4,
-        name: "Fresh Milk",
-        price: 250,
-        unit: "Liter",
-        emoji: "🥛",
-        image:
-            "https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=300&q=80"
+    if (!grid) {
+        return;
     }
 
-};
+    grid.innerHTML =
+        Object.values(products).map(p => {
+
+            return `
+
+                <div class="product-card">
+
+                    <div class="product-image">
+
+                        <img
+                            src="${p.largeImage}"
+                            alt="${p.name}"
+                        >
+
+                        <span class="fresh-badge">
+                            ${p.badge}
+                        </span>
+
+                    </div>
+
+                    <div class="product-content">
+
+                        <h3>
+                            ${p.name}
+                        </h3>
+
+                        <p>
+                            ${p.description}
+                        </p>
+
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+
+                        <div class="product-bottom">
+
+                            <div class="price">
+                                Rs. ${p.price.toLocaleString()}
+                                <small>/ ${p.unit}</small>
+                            </div>
+
+                            <button
+                                class="add-btn"
+                                onclick="addToCart(${p.id})"
+                            >
+                                Add to Cart
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }).join("");
+
+}
+
+
+async function loadProducts() {
+
+    try {
+
+        const response =
+            await fetch("products.json");
+
+        if (!response.ok) {
+            throw new Error("HTTP " + response.status);
+        }
+
+        const items =
+            await response.json();
+
+        products = {};
+
+        items.forEach(item => {
+            products[item.id] = item;
+        });
+
+        renderProducts();
+
+        updateCart();
+
+    } catch (error) {
+
+        console.error("Failed to load products:", error);
+
+        const loading =
+            document.getElementById(
+                "productLoading"
+            );
+
+        if (loading) {
+            loading.textContent =
+                "Failed to load products. Please refresh.";
+        }
+
+    }
+
+}
 
 
 /* ============================================================
@@ -3807,7 +3689,7 @@ function showToast(message) {
    INITIALIZE
    ============================================================ */
 
-updateCart();
+loadProducts();
 
 </script>
 
