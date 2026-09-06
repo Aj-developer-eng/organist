@@ -2,8 +2,8 @@
     {
         "id": 1,
         "name": "Desi Anday",
-        "price": 450,
-        "unit": "Dozen",
+        "price": 1200,
+        "unit": "A Tray(2.5) Dozen",
         "emoji": "🥚",
         "badge": "🥚 Fresh",
         "description": "Fresh, wholesome Desi eggs from naturally raised hens, fed with quality natural feed and sourced from trusted local suppliers.",
@@ -13,7 +13,7 @@
     {
         "id": 2,
         "name": "Detox Chicken",
-        "price": 950,
+        "price": 850,
         "unit": "KG",
         "emoji": "🍗",
         "badge": "🍗 Fresh",
@@ -23,19 +23,8 @@
     },
     {
         "id": 3,
-        "name": "Batair Meat",
-        "price": 1000,
-        "unit": "KG",
-        "emoji": "🐦",
-        "badge": "🐦 Fresh",
-        "description": "Fresh, wholesome Batair meat sourced from trusted local suppliers, carefully prepared and delivered fresh to your doorstep.",
-        "image": "https://pk.all.biz/img/pk/catalog/87324.jpg",
-        "largeImage": "https://pk.all.biz/img/pk/catalog/87324.jpg"
-    },
-    {
-        "id": 4,
-        "name": "Fresh Milk",
-        "price": 250,
+        "name": "Buffalo Fresh Milk",
+        "price": 360,
         "unit": "Liter",
         "emoji": "🥛",
         "badge": "🥛 Fresh",
@@ -44,14 +33,14 @@
         "largeImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5nKQ_5GV393btWfkjiUz02SjHWw-NlX-gsPb-a5k69IUGCFQldvCzLXcy&s=10"
     },
     {
-        "id": 5,
-        "name": "Multani Sohan Halwa",
-        "price": 1400,
-        "unit": "KG",
-        "emoji": "🍯",
-        "badge": "🍯 Fresh",
-        "description": "Authentic Multani Sohan Halwa — rich, traditional dessert made with premium ingredients, offering the perfect balance of sweetness and texture in every bite.",
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWm6znkhMbIcG1auHgU0XYvsWjg33QPSfCbB0R59Ql4dMq0iDo4VlWzZ3r&s=10",
-        "largeImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWm6znkhMbIcG1auHgU0XYvsWjg33QPSfCbB0R59Ql4dMq0iDo4VlWzZ3r&s=10"
+        "id": 4,
+        "name": "Cow Fresh Milk",
+        "price": 340,
+        "unit": "Liter",
+        "emoji": "🥛",
+        "badge": "🥛 Fresh",
+        "description": "Pure, fresh milk sourced from trusted local suppliers — naturally rich, injection-free, with no added water or milawat. Freshness and quality you can feel in every sip.",
+        "image": "https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=300&q=80",
+        "largeImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5nKQ_5GV393btWfkjiUz02SjHWw-NlX-gsPb-a5k69IUGCFQldvCzLXcy&s=10"
     }
 ]
