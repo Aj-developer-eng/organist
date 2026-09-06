@@ -578,6 +578,13 @@
             background: var(--green-dark);
         }
 
+        .add-btn:disabled,
+        .add-btn.disabled {
+            background: #b0b0b0;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
         /* =========================
            WHY US
         ========================== */
@@ -2871,10 +2878,11 @@ function renderProducts() {
                             </div>
 
                             <button
-                                class="add-btn"
-                                onclick="addToCart(${p.id})"
+                                class="add-btn${p.is_disabled ? ' disabled' : ''}"
+                                onclick="${p.is_disabled ? '' : `addToCart(${p.id})`}"
+                                ${p.is_disabled ? 'disabled' : ''}
                             >
-                                Add to Cart
+                                ${p.is_disabled ? 'Unavailable Due To High Demand' : 'Add to Cart'}
                             </button>
 
                         </div>
@@ -2954,6 +2962,12 @@ function saveCart() {
 
 
 function addToCart(productId) {
+
+    const product = products[productId];
+    if (product && product.is_disabled) {
+        showToast("This product is currently unavailable.");
+        return;
+    }
 
     const existing =
         cart.find(
@@ -3501,7 +3515,6 @@ Thank you for ordering from Organist 🌿
         WHATSAPP_NUMBER +
         "&text=" +
         encodedMessage;
-
 
     window.open(
         whatsappUrl,
